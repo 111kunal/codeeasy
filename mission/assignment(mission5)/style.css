@@ -60,6 +60,10 @@ body{
     cursor: pointer;
 }
 
+#message{
+    color: white;
+}
+
 .movie-card{
     width: 300px;
     height: 500px;

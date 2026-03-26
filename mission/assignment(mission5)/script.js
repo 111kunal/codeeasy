@@ -8,17 +8,22 @@ const modalcontent = document.querySelector("#modal_content")
 const body = document.querySelector("body");
 
 async function searchmovies(){
-    const input = searchinput.value;
+    const input = searchinput.value.trim();
     const apikey = '63cf737a';
 
     if(input == ""){
-        result.textContent = "Enter the movie name ....";
+        message.textContent = "Enter the movie name ....";
+        return
     }
 
     message.textContent = "Searching.....";
+
     result.innerHTML = "";
 
+    
+
     const apiurl = `https://www.omdbapi.com/?s=${ input }&apikey=${apikey}`;
+
     try{
         const response = await fetch(apiurl)
 
@@ -26,6 +31,13 @@ async function searchmovies(){
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
+
+        message.textContent = "";
+
+        if(data.Response == "False"){
+        message.textContent = "no movies found";
+        return
+        }
 
         for(let i=0; i<data.Search.length; i++){
         let movie = data.Search[i];
@@ -75,16 +87,6 @@ async function searchmovies(){
     catch(error){
         console.error("Fetch failure:",error.message)
     }
-    
-
-
-    // if(data.response == false){
-    //     message.textContent = "no movies found";
-    // }
-
-    
-
-    
 
 }
 
