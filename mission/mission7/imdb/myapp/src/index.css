@@ -1,0 +1,103 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: black;
+}
+
+.app{
+    
+}
+
+.loading{
+    color: white;
+}
+
+.error{
+    color: white;
+}
+.header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    height: 45px;
+    margin-right: 400px ;
+    border-radius: 5px;
+}
+
+.searchbox input{
+    width: 600px;
+    height: 30px;
+    color: black;
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.searchbox button{
+    color: black;
+    width: 70px;
+    height: 30px;
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.header img{
+    width: 100px;
+    height: 60px;
+}
+
+.movie-list{
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.movie-card{
+    width: 300px;
+    height: 550px;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 7px;
+    background-color: white;
+}
+
+.movie-card img{
+    border-radius: 7px;
+    width: 100%;
+    height: 450px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.card-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-info div{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 10px;
+    align-items: center;
+}
