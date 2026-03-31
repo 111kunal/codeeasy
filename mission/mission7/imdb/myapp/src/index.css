@@ -10,12 +10,10 @@ body{
     background-color: black;
 }
 
-.app{
-    
-}
 
 .loading{
     color: white;
+    margin: 0 auto;
 }
 
 .error{
@@ -29,6 +27,9 @@ body{
     align-items: center;
 }
 
+.nomovie{
+    color: white;
+}
 .searchbox{
     display: flex;
     justify-content: center;
@@ -55,6 +56,10 @@ body{
     border-left: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+}
+
+.searchbox button:hover{
+    cursor: pointer;
 }
 
 .header img{
@@ -100,4 +105,46 @@ body{
     justify-content: space-between;
     margin: 0 10px;
     align-items: center;
+}
+
+.modal{
+    width: 800px;
+    position: fixed;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    left: 400px;
+    top: 150px;
+
+}
+
+.modal-box{
+    display: flex;
+    margin: 20px;
+}
+
+.modal-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+    align-items: start;
+    gap: 10px;
+}
+.modal-box img{
+    height: 300px;
+}
+
+.backbtn{
+    position: absolute;
+    top: 5px;
+    right: 14px;
+    font-size: 22px;
+    line-height: 1;
+    background: none;
+    border: none;
+}
+
+.modalload{
+    color: black;
 }

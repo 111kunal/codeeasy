@@ -11,6 +11,8 @@ function App() {
   const [hasSearched,setHasSearched] = useState(false)
   const [response,setResponse] = useState(null)
   const [error,setError] = useState(null)
+  const [loadmodal,setLoadModal] = useState(true)
+  const [modalData,setModalData] = useState([])
 
   useEffect(()=>{
     if(!value) return;
@@ -46,7 +48,13 @@ function App() {
       {!Loading &&  !selectedMovie && (
         <div className="movie-list">
           {movies.map((movie)=>(
-            <div className="movie-card" key={movie.imdbID} onClick={()=>setSelectedMovie(movie)}>
+            <div className="movie-card" key={movie.imdbID} onClick={async()=>{
+              setSelectedMovie(movie)
+              let Response1 = await fetch(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=63cf737a`)
+              let data1 = await Response1.json();
+              setModalData(data1)
+              setLoadModal(false)
+              }}>
               <img src={movie.Poster} alt={movie.Title} />
               <div className='card-info'>
                 <h3>{movie.Title}</h3>
@@ -59,6 +67,20 @@ function App() {
           ))}
         </div>
       )}
+      {loadmodal && selectedMovie && <p className='modalload'>Loading....</p>}
+      { selectedMovie && !loadmodal && (<div className='modal'>
+        <button className='backbtn' onClick={()=>setSelectedMovie(null)}>&times;</button>
+        <div className='modal-box'>
+          <img src={modalData.Poster} alt="" />
+          <div className="modal-info">
+            <h3>Title:{modalData.Title}</h3>
+            <p>Plot:{modalData.Plot}</p>
+            <p>Genre:{modalData.Genre}</p>
+            <p>Cast:{modalData.Actors}</p>
+            <p>Rating:{modalData.imdbRating}</p>
+          </div>
+        </div>
+      </div>)}
 
     </div>
   )

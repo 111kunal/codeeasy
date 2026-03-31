@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import './App.css'
 
 function App() {
+  
   const [Coins,setCoins] = useState([])
   const [Loading,setLoading] = useState(true)
   const [selectedCoin,setSelectedCoin] = useState(null)
