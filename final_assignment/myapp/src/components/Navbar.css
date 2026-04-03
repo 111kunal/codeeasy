@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    width: 125px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 25px;
+    
+}
+
+.nav-btn{
+    border: none;
+    background-color:transparent;
+}
+
+.navbar ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar li{
+    width: 100px;
+    height: 35px;
+}
+
+.nav-btn::before{
+    content: '•';
+    margin-right: 5px;
+
+}
+
+.navbar p{
+    width: 100%;
+    border: 2px dotted gray;
+}

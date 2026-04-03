@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-right: 40px;
+    border: 2px solid black;
+}
+
+
+
+.middle{
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom{
+    display: flex;
+}
+
+.pipeline{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.info-block{
+    display: flex;
+}
+
+.info-box{
+    margin-right: 10px;
+}
+
+.updates{
+    width: 50%;
+}
+
+.update-box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
