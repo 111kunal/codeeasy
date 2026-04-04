@@ -2,24 +2,27 @@ import { useState } from 'react'
 import { TopBar } from './components/TopBar'
 import { Navbar } from './components/Navbar'
 import { Dashboard } from './components/Dashboard'
-import './App.css'
+import styles from './App.module.css'
 import { Header } from './components/Header'
+import { Skills } from './components/Skills'
 
 
 
 
 function App() {
-  const [activePage,setActivePage] = useState("")
+  const [activePage,setActivePage] = useState("skills")
 
   return (
-    <div className='app'>
+    <div className={styles.app}>
       <TopBar/>
-      <div className='hero'>
+      <div className={styles.hero}>
         <Navbar activePage={activePage} setActivePage={setActivePage}/>
-        <div>
+        <div className={styles['display-section']}>
           <Header/>
-          <Dashboard/>
+          {activePage == "dashboard" && <Dashboard/>}
+          {activePage == "skills" && <Skills/>}
         </div>
+        
         
       </div>
     </div>

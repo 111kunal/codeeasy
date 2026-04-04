@@ -1,10 +1,10 @@
-import './Header.css'
+import styles from './Header.module.css'
 
 export function Header(){
 
     return(
-        <div className='header'>
-            <div className='left'>
+        <div className={styles.header}>
+            <div className={styles.left}>
                     <h3>Dashboard</h3>
                     <ul>
                         <p>Current strak:0</p>

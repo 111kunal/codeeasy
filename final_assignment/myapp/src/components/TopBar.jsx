@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './TopBar.css'
+import styles from './TopBar.module.css'
 import logo from '../assets/logo.png'
 
 
@@ -20,10 +20,10 @@ export function TopBar(){
     }
 
     return(
-        <div className="header">
-        <div className="left">
+        <div className={styles.topbar}>
+        <div className={styles.left}>
           <img src={logo} alt="" />
-          <div className='left-section'>
+          <div className={styles['left-section']}>
             <h2>Developer Career OS</h2>
             <ul>
               <p>Track Skills</p>
@@ -32,24 +32,24 @@ export function TopBar(){
               <li>Streak</li>
             </ul></div>
         </div>
-        {!edit && <div className="right">
-          <div className='box1'>
-            <div className='box2'>
+        {!edit && <div className={styles.right}>
+          <div className={styles.box1}>
+            <div className={styles.box2}>
               <h3>{userName}</h3>
               <p>{job} Goal:{goal}</p>
             </div>
             <h1>{userName[0]?.toUpperCase()}</h1>
           </div>
-          <button className='Editbtn' onClick={()=>setEdit(true)}>Edit</button>
+          <button className={styles.Editbtn} onClick={()=>setEdit(true)}>Edit</button>
         </div>}
 
-        {edit && <div className='edit-box'>
+        {edit && <div className={styles['edit-box']}>
           <input type="text" placeholder='Name' onChange={(e)=>setInputName(e.target.value)} />
           <input type="text" placeholder='Job' onChange={(e)=>setInputJob(e.target.value)}/>
           <input type="text" placeholder='Goal' onChange={(e)=>setInputGoal(e.target.value)} />
-          <div className='edit-btns'>
-            <button className='savebtn' onClick={save}>Save</button>
-            <button className='closebtn' onClick={()=>setEdit(false)}>Close</button>
+          <div className={styles['edit-btns']}>
+            <button className={styles.savebtn} onClick={save}>Save</button>
+            <button className={styles.closebtn} onClick={()=>setEdit(false)}>Close</button>
           </div>
           </div>}
       </div>
