@@ -3,6 +3,7 @@ import styles from './Skills.module.css'
 
 export function Skills(){
     const [clickAdd,setClickAdd] = useState(false)
+    const [skillname,setSkillName] = useState(null)
     const [addValue,setAddValue] = useState("")
     const [skillInfo,setSkillInfo] = useState([])
 
@@ -11,20 +12,27 @@ export function Skills(){
         setSkillInfo([...skillInfo,{name:skillname, level:3,target:5,notes:"whats's next?"}])
         setAddValue("")
     }
+
+    const deletebtn = (index)=>{
+        setSkillInfo(skillInfo.filter((_,i)=>i!=index))
+    }
+    const filteredvalues = skillname? skillInfo.filter((value)=>value.name.includes(skillname)):skillInfo
     return(
         <div className={styles.main}>
             <div className={styles.header}>
                 <h4>Skills</h4>
                 <div>
                     {!clickAdd && <div>
-                        <input type="text" placeholder='Search skills...' />
+                        <input type="text" placeholder='Search skills...' onChange={(e)=>setSkillName(e.target.value)}/>
                         <button onClick={()=>{
                             setClickAdd(true)
                         }}>+Add</button>
                     </div>}
                     {clickAdd && <div>
                         <input type="text" placeholder='skill name eg.html,css etc.' onChange={(e)=>{setAddValue(e.target.value)}}/>
-                        <button onClick={()=>addskill(addValue)}>Add</button>
+                        <button onClick={()=>{
+                            addskill(addValue)
+                        }}>Add</button>
                         <button onClick={()=>{
                             setClickAdd(false)
                         }}>Close</button>
@@ -43,7 +51,7 @@ export function Skills(){
                         </tr>
                     </thead>
                     <tbody className={styles.tbody}>
-                            {skillInfo.map((value,index)=>(
+                            {filteredvalues.map((value,index)=>(
                                 <tr key={index}>
                                     <td><h4>{value.name}</h4></td>
                                 <td><button>-</button>
@@ -61,7 +69,7 @@ export function Skills(){
                                 <td>
                                     <input type="text" placeholder={value.notes} />
                                 </td>
-                                <td><button>Delete</button></td>
+                                <td><button onClick={()=>deletebtn(index)}>Delete</button></td>
                                 </tr>
                             ))}
                     </tbody>
