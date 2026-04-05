@@ -4,7 +4,16 @@
     box-sizing: border-box;
 }
 
+.main{
+    width: 100%;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .middle table{
     width: 100%;
 }
+

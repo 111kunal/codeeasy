@@ -28,6 +28,11 @@
 .navbar li{
     width: 100px;
     height: 35px;
+    border: 2px solid black;
+}
+
+.navbar li button:hover{
+    cursor: pointer;
 }
 
 .nav-btn::before{

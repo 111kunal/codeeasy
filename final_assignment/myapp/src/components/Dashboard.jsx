@@ -1,6 +1,6 @@
 import styles from './Dashboard.module.css'
 
-export function Dashboard(){
+export function Dashboard({checkIn}){
 
     return(
         <div className={styles.main}>
@@ -61,7 +61,8 @@ export function Dashboard(){
                     <div className={styles['update-box']}>
                         <div>
                             <p>check-in Today</p>
-                            <h4>No</h4>
+                            {checkIn && <h4>Yes</h4>}
+                            {!checkIn && <h4>No</h4>}
                         </div>
                     </div>
                 </div>

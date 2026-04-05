@@ -49,6 +49,7 @@ function App() {
         <div className="movie-list">
           {movies.map((movie)=>(
             <div className="movie-card" key={movie.imdbID} onClick={async()=>{
+              setLoadModal(true)
               setSelectedMovie(movie)
               let Response1 = await fetch(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=63cf737a`)
               let data1 = await Response1.json();

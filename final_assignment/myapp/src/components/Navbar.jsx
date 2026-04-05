@@ -1,6 +1,6 @@
 import styles from './Navbar.module.css'
 
-export function Navbar(activePage,setActivePage){
+export function Navbar({activePage,setActivePage}){
 
     return(
         <div className={styles.navbar}>
