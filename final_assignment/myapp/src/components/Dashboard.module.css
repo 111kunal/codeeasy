@@ -16,6 +16,7 @@
 
 
 .middle{
+    height: 150px;
     display: flex;
     justify-content: space-between;
 }
@@ -26,9 +27,11 @@
 
 .pipeline{
     width: 50%;
+    height: 300px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    border: 2px solid black;
 
 }
 .info-block{
@@ -41,6 +44,8 @@
 
 .updates{
     width: 50%;
+    height: 300px;
+    border: 2px solid black;
 }
 
 .update-box{

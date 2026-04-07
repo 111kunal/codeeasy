@@ -38,7 +38,7 @@ export function TopBar(){
               <h3>{userName}</h3>
               <p>{job} Goal:{goal}</p>
             </div>
-            <h1>{userName[0]?.toUpperCase()}</h1>
+            <h1 className={styles.nsymbol}>{userName[0]?.toUpperCase()}</h1>
           </div>
           <button className={styles.Editbtn} onClick={()=>setEdit(true)}>Edit</button>
         </div>}

@@ -5,8 +5,12 @@
 }
 .header{
     display: flex;
+    height: 100px;
     justify-content: space-between;
     align-items: center;
+    background-color: rgba(192, 189, 189, 0.507);
+    border-radius: 8px;
+    padding: 0px 15px;
 }
 
 .left{

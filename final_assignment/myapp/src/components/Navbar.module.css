@@ -5,12 +5,9 @@
 }
 
 .navbar{
-    width: 125px;
+    width: 15%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-left: 25px;
+    margin-top: 0;
     
 }
 
@@ -26,13 +23,24 @@
 }
 
 .navbar li{
-    width: 100px;
-    height: 35px;
-    border: 2px solid black;
+    width: 254px;
+    height: 65px;
+    background-color: rgba(192, 189, 189, 0.507);
+    border-radius: 8px;
+    border-bottom: 2px solid gray;
 }
 
 .navbar li button:hover{
     cursor: pointer;
+}
+
+.navbar li button{
+    font-size: 23px;
+}
+
+.navbar li:hover{
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
 }
 
 .nav-btn::before{
@@ -44,4 +52,8 @@
 .navbar p{
     width: 100%;
     border: 2px dotted gray;
+}
+
+.tip{
+    margin-top: 20px;
 }

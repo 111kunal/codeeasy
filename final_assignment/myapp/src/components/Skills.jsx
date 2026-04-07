@@ -6,12 +6,17 @@ export function Skills(){
     const [skillname,setSkillName] = useState(null)
     const [addValue,setAddValue] = useState("")
     const [skillInfo,setSkillInfo] = useState([])
+    // const [level,setLevel] = useState(3)
 
     const addskill = (skillname)=>{
         setClickAdd(false)
         setSkillInfo([...skillInfo,{name:skillname, level:3,target:5,notes:"whats's next?"}])
         setAddValue("")
     }
+
+    // const decrement = ()=>{
+
+    // }
 
     const deletebtn = (index)=>{
         setSkillInfo(skillInfo.filter((_,i)=>i!=index))
@@ -54,7 +59,7 @@ export function Skills(){
                             {filteredvalues.map((value,index)=>(
                                 <tr key={index}>
                                     <td><h4>{value.name}</h4></td>
-                                <td><button>-</button>
+                                <td className={styles.level}><button>-</button>
                                 <h4>{value.level}</h4>
                                 <button>+</button>
                                 </td>
