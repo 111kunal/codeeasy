@@ -16,13 +16,21 @@
 
 
 .middle{
-    height: 150px;
+    height: 110px;
     display: flex;
     justify-content: space-between;
 }
 
 .bottom{
     display: flex;
+}
+
+.skill-box{
+    height: 75px;
+    width: 100%;
+    margin: 5px;
+    background-color: rgba(192, 189, 189, 0.507);
+    border-radius: 8px;
 }
 
 .pipeline{
@@ -39,7 +47,10 @@
 }
 
 .info-box{
+    padding: 5px;
     margin-right: 10px;
+    background-color: rgba(192, 189, 189, 0.507);
+    border-radius: 8px;
 }
 
 .updates{
