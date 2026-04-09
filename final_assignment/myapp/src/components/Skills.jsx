@@ -1,11 +1,14 @@
-import { useState } from 'react'
+import { useState , useEffect } from 'react'
 import styles from './Skills.module.css'
 
 export function Skills(){
     const [clickAdd,setClickAdd] = useState(false)
     const [skillname,setSkillName] = useState(null)
     const [addValue,setAddValue] = useState("")
-    const [skillInfo,setSkillInfo] = useState([])
+    const [skillInfo,setSkillInfo] = useState(() => {
+        const saved = localStorage.getItem('skillInfo')
+        return saved ? JSON.parse(saved) : []
+    })
     // const [level,setLevel] = useState(3)
 
     const addskill = (skillname)=>{
@@ -14,9 +17,10 @@ export function Skills(){
         setAddValue("")
     }
 
-    // const decrement = ()=>{
+    useEffect(() => {
+        localStorage.setItem('skillInfo', JSON.stringify(skillInfo))
+    }, [skillInfo])
 
-    // }
 
     const deletebtn = (index)=>{
         setSkillInfo(skillInfo.filter((_,i)=>i!=index))
