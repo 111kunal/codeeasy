@@ -1,6 +1,6 @@
 import styles from './Dashboard.module.css'
 
-export function Dashboard({checkIn}){
+export function Dashboard({checkIn,countskill}){
 
     return(
         <div className={styles.main}>
@@ -11,7 +11,7 @@ export function Dashboard({checkIn}){
             <div className={styles.middle}>
                 <div className={styles['skill-box']}>
                     <h4>Skills Completed</h4>
-                    <h2>0/4</h2>
+                    <h2>0/{countskill}</h2>
                     <p>0% at target</p>
                 </div>
                 <div className={styles['skill-box']}>

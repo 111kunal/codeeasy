@@ -14,6 +14,11 @@ function App() {
   const [checkIn,setCheckIn] = useState(false)
   const [date,setDate] = useState("")
   const [streak,setStreak] = useState(0)
+  const [noOfSkills,setNoOfSkills] = useState(null)
+  const [skillInfo,setSkillInfo] = useState(() => {
+          const saved = localStorage.getItem('skillInfo')
+          return saved ? JSON.parse(saved) : []
+      })
 
 
   return (
@@ -24,9 +29,9 @@ function App() {
         <div className={styles['display-section']}>
           <Header setCheckIn={setCheckIn} date={date} setDate={setDate} streak={streak} setStreak={setStreak}/>
 
-          {activePage == "dashboard" && <Dashboard checkIn={checkIn} />}
+          {activePage == "dashboard" && <Dashboard checkIn={checkIn} countskill={skillInfo.length}  noOfSkills={noOfSkills} />}
 
-          {activePage == "skills" && <Skills/>}
+          {activePage == "skills" && <Skills skillInfo={skillInfo} setSkillInfo={setSkillInfo} setNoOfSkills={setNoOfSkills} />}
         </div>
         
         
