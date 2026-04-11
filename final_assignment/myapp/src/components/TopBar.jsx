@@ -1,23 +1,23 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import styles from './TopBar.module.css'
 import logo from '../assets/logo.png'
 
 
 export function TopBar(){
-    const [inputName,setInputName] = useState("")
-    const [userName,setUserName] = useState("Name")
-    const [inputJob,setInputJob] = useState("")
-    const [job,setJob] = useState("Job")
-    const [inputGoal,setInputGoal] = useState("")
-    const [goal,setGoal] = useState("To become a CEO")
+    const [topBarInfo,setTopBarInfo] = useState(()=>{
+          const saved = localStorage.getItem('topBarInfo')
+          return saved ? JSON.parse(saved) : { name: 'Name', job: 'Job', goal: 'To become a CEO' }
+    })
+    const [formData,setFormData] = useState({name:"",job:"",goal:""})
     const [edit,setEdit] = useState(false)
 
     const save = ()=>{
-        setUserName(inputName)
-        setJob(inputJob)
-        setGoal(inputGoal)
+        setTopBarInfo(formData)
         setEdit(false)
     }
+    useEffect(()=>{
+      localStorage.setItem('topBarInfo',JSON.stringify(topBarInfo))
+    },[topBarInfo])
 
     return(
         <div className={styles.topbar}>
@@ -35,18 +35,18 @@ export function TopBar(){
         {!edit && <div className={styles.right}>
           <div className={styles.box1}>
             <div className={styles.box2}>
-              <h3>{userName}</h3>
-              <p>{job} Goal:{goal}</p>
+              <h3>{topBarInfo.name}</h3>
+              <p>{topBarInfo.job} Goal:{topBarInfo.goal}</p>
             </div>
-            <h1 className={styles.nsymbol}>{userName[0]?.toUpperCase()}</h1>
+            <h1 className={styles.nsymbol}>{topBarInfo.name[0]?.toUpperCase()}</h1>
           </div>
           <button className={styles.Editbtn} onClick={()=>setEdit(true)}>Edit</button>
         </div>}
 
         {edit && <div className={styles['edit-box']}>
-          <input type="text" placeholder='Name' onChange={(e)=>setInputName(e.target.value)} />
-          <input type="text" placeholder='Job' onChange={(e)=>setInputJob(e.target.value)}/>
-          <input type="text" placeholder='Goal' onChange={(e)=>setInputGoal(e.target.value)} />
+          <input type="text" placeholder='Name' onChange={(e)=>setFormData({...formData ,name:e.target.value})} />
+          <input type="text" placeholder='Job' onChange={(e)=>setFormData({...formData ,job:e.target.value})}/>
+          <input type="text" placeholder='Goal' onChange={(e)=>setFormData({...formData ,goal:e.target.value})} />
           <div className={styles['edit-btns']}>
             <button className={styles.savebtn} onClick={save}>Save</button>
             <button className={styles.closebtn} onClick={()=>setEdit(false)}>Close</button>

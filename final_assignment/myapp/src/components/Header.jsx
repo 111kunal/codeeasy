@@ -1,29 +1,39 @@
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import styles from './Header.module.css'
 
-export function Header({date,setDate,setCheckIn,streak,setStreak}){
+export function Header({setCheckIn,activePage}){
+    const [headInfo,setHeadInfo] = useState(()=>{
+        const saved = localStorage.getItem('headInfo')
+        return saved ? JSON.parse(saved) : {streak:0,best:0,date:""}
+    })
     const [clickStreak,setClickStreak] = useState(false);
+    const [tempInfo,setTempInfo] = useState({streak:0,best:0,date:""})
+
+    const checkin = ()=>{
+        if(clickStreak) return;
+        const date = new Date().toLocaleDateString()
+        const updated ={streak: tempInfo.streak+1 , best: tempInfo.best + 1, date: date}
+        setTempInfo(updated)
+        setHeadInfo(updated)
+        setCheckIn(true)
+        setClickStreak(true)
+    }
+
+    useEffect(()=>{
+        localStorage.setItem('headInfo',JSON.stringify(headInfo))
+    },[headInfo])
+    
     return(
         <div className={styles.header}>
-            <div className={styles.left}>
-                    <h3>Dashboard</h3>
+                <div className={styles.left}>
+                    <h3>{activePage}</h3>
                     <ul>
-                        <p>Current strak:{streak}</p>
-                        <li>Best:0</li>
-                        <li>Last check:{date}</li>
+                        <p>Current strak:{headInfo.streak}</p>
+                        <li>Best:{headInfo.best}</li>
+                        <li>Last check:{headInfo.date}</li>
                     </ul>
                 </div>
-                <button onClick={()=>{
-                    setCheckIn(true)
-                    {!clickStreak && setStreak(streak+1)}
-                    setClickStreak(true)
-                    const today = new Date()
-                    console.log(today)
-                    const day = today.getDate()
-                    const month = today.toLocaleString('default', { month: 'long' })
-                    const year = today.getFullYear()
-                    setDate(`${day}/${month}/${year}`)
-                }}>Daily check-in</button>
+                <button onClick={()=>checkin()}>Daily check-in</button>
         </div>
     )
 }

@@ -77,11 +77,38 @@
     height: 25px;
 }
 
+.Editbtn{
+    padding: 5px;
+    border-radius: 5px;
+}
+
 .edit-box{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+.edit-box input{
+    border-radius: 5px;
+}
+
+.edit-btns{
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.savebtn{
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.closebtn{
+    padding: 5px;
+    border-radius: 5px;
 }
 
 .nsymbol{

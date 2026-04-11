@@ -10,7 +10,7 @@ import { Skills } from './components/Skills'
 
 
 function App() {
-  const [activePage,setActivePage] = useState("dashboard")
+  const [activePage,setActivePage] = useState("Dashboard")
   const [checkIn,setCheckIn] = useState(false)
   const [date,setDate] = useState("")
   const [streak,setStreak] = useState(0)
@@ -27,11 +27,11 @@ function App() {
       <div className={styles.hero}>
         <Navbar activePage={activePage} setActivePage={setActivePage}/>
         <div className={styles['display-section']}>
-          <Header setCheckIn={setCheckIn} date={date} setDate={setDate} streak={streak} setStreak={setStreak}/>
+          <Header setCheckIn={setCheckIn} date={date} setDate={setDate} streak={streak} setStreak={setStreak} activePage={activePage}/>
 
-          {activePage == "dashboard" && <Dashboard checkIn={checkIn} countskill={skillInfo.length}  noOfSkills={noOfSkills} />}
+          {activePage == "Dashboard" && <Dashboard checkIn={checkIn} countskill={skillInfo.length}  noOfSkills={noOfSkills}  />}
 
-          {activePage == "skills" && <Skills skillInfo={skillInfo} setSkillInfo={setSkillInfo} setNoOfSkills={setNoOfSkills} />}
+          {activePage == "Skills" && <Skills skillInfo={skillInfo} setSkillInfo={setSkillInfo}/>}
         </div>
         
         

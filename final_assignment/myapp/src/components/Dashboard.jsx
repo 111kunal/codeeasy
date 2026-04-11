@@ -43,7 +43,7 @@ export function Dashboard({checkIn,countskill}){
                     <p>This is what makes your resume "real": consistent application + iteration.</p>
                 </div>
                 <div className={styles.updates}>
-                    <h4>Latest Updates</h4>
+                    <h4 className={styles.title}>Latest Updates</h4>
                     <div className={styles['update-box']}>
                         <div>
                             <p>Latest Project</p>

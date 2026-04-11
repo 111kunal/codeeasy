@@ -20,6 +20,15 @@
     align-items: start;
 }
 
+.header button{
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.left h3{
+    font-size: 28px;
+}
+
 .left ul{
     display: flex;
 }

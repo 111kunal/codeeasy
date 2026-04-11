@@ -8,13 +8,66 @@
     width: 100%;
 }
 .header{
+    height: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.header h4{
+    font-size: 25px;
+}
+
+.search{
+    width: 250px;
+    height: 25px;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0;
+}
+
+.addbtn{
+    width: 50px;
+    height: 25px;
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-right: 10px;
+}
+
+.closebtn{
+    width: 50px;
+    height: 25px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+
 .middle table{
+    margin-top: 20px;
     width: 100%;
+}
+
+.middle table tr{
+    height: 50px;
+}
+
+.middle table tr th{
+    background-color: rgba(192, 189, 189, 0.977);
+    border-radius: 5px;
+}
+
+
+.middle table tr td{
+    background-color: rgba(192, 189, 189, 0.507);
+    border-radius: 5px;
+}
+
+.delbtn{
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
 }
 
 .level{

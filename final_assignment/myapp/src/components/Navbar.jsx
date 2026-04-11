@@ -5,12 +5,12 @@ export function Navbar({activePage,setActivePage}){
     return(
         <div className={styles.navbar}>
             <ul className={styles.list}>
-                <li onClick={()=>setActivePage('dashboard')}><button className={`${styles['nav-btn']} ${activePage === 'dashboard' ? styles.active : '' }`}>Dashboard</button></li>
-                <li onClick={()=>setActivePage('skills')}><button className={`${styles['nav-btn']} ${activePage === 'skills' ? styles.active : '' }`} >Skills</button></li>
-                <li onClick={()=>setActivePage('projects')}><button className={`${styles['nav-btn']} ${activePage === 'projects' ? styles.active : '' }`} >Projects</button></li>
-                <li onClick={()=>setActivePage('application')}><button className={`${styles['nav-btn']} ${activePage === 'application' ? styles.active : '' }`} >Application</button></li>
-                <li onClick={()=>setActivePage('notes')}><button className={`${styles['nav-btn']} ${activePage === 'notes' ? styles.active : '' }`} >Notes</button></li>
-                <li onClick={()=>setActivePage('settings')}><button className={`${styles['nav-btn']} ${activePage === 'settings' ? styles.active : '' }`} >Settings</button></li>
+                <li onClick={()=>setActivePage('Dashboard')}><button className={`${styles['nav-btn']} ${activePage === 'Dashboard' ? styles.active : '' }`}>Dashboard</button></li>
+                <li onClick={()=>setActivePage('Skills')}><button className={`${styles['nav-btn']} ${activePage === 'Skills' ? styles.active : '' }`} >Skills</button></li>
+                <li onClick={()=>setActivePage('Projects')}><button className={`${styles['nav-btn']} ${activePage === 'Projects' ? styles.active : '' }`} >Projects</button></li>
+                <li onClick={()=>setActivePage('Application')}><button className={`${styles['nav-btn']} ${activePage === 'Application' ? styles.active : '' }`} >Application</button></li>
+                <li onClick={()=>setActivePage('Notes')}><button className={`${styles['nav-btn']} ${activePage === 'Notes' ? styles.active : '' }`} >Notes</button></li>
+                <li onClick={()=>setActivePage('Settings')}><button className={`${styles['nav-btn']} ${activePage === 'Settings' ? styles.active : '' }`} >Settings</button></li>
             </ul>
             <p className={styles}>Tip:Use check-in daily to build streak</p>
 
